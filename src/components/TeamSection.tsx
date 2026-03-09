@@ -3,11 +3,23 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const getInitials = (name: string) =>
+    name
+        .split(" ")
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((part) => part[0])
+        .join("");
+
 const team = [
     {
         name: "أحمد سليمان محمد العادلي",
         role: "Student / Project Author",
         image: "/images/team/ahmed-al-adly.png",
+    },
+    {
+        name: "أحمد أسامة",
+        role: "Student / Project Author",
     },
     {
         name: "أ.د. أحمد القطان",
@@ -37,13 +49,19 @@ export default function TeamSection() {
                             className="group relative flex flex-col items-center bg-[#1A1A1A] border border-[#1F1F22] p-8 min-w-[320px] hover:border-[#C9A227] transition-all duration-500"
                         >
                             {/* Image Frame */}
-                            <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#1F1F22] group-hover:border-[#0F766E] transition-colors duration-500 mb-6 bg-[#0B0B0C]">
-                                <Image
-                                    src={member.image}
-                                    alt={member.name}
-                                    fill
-                                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                                />
+                            <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#1F1F22] group-hover:border-[#0F766E] transition-colors duration-500 mb-6 bg-[#0B0B0C] flex items-center justify-center">
+                                {member.image ? (
+                                    <Image
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                    />
+                                ) : (
+                                    <span className="text-3xl font-bold text-[#C9A227]">
+                                        {getInitials(member.name)}
+                                    </span>
+                                )}
                             </div>
 
                             {/* Text Content */}
