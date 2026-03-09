@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { projectData } from "@/data/projectData";
 import ReactBeforeSliderComponent from 'react-before-after-slider-component';
 import 'react-before-after-slider-component/dist/build.css';
+import AdaptiveBeforeAfter from "@/components/AdaptiveBeforeAfter";
 
 export default function BeforeAfterSlider() {
     // Show all architectural redesign pairs
@@ -40,14 +41,22 @@ export default function BeforeAfterSlider() {
                             </div>
 
                             <div className="w-full bg-[#1A1A1A] p-4 border border-[#1F1F22] rounded-sm">
-                                <div className="relative w-full aspect-video md:aspect-[21/9] lg:aspect-[2/1] overflow-hidden border border-[#0B0B0C]">
-                                    {/* react-before-after-slider-component forces its own sizes, so we contain it carefully */}
-                                    <ReactBeforeSliderComponent
-                                        firstImage={{ imageUrl: img.redesign_url }}
-                                        secondImage={{ imageUrl: img.original_url }}
+                                {img.title === "مقترحات العمل الفني والهندسي للممرات" ? (
+                                    <AdaptiveBeforeAfter
+                                        beforeSrc={img.original_url}
+                                        afterSrc={img.redesign_url}
+                                        alt={img.title}
                                         delimiterColor="#0F766E"
                                     />
-                                </div>
+                                ) : (
+                                    <div className="relative w-full bg-[#0B0B0C] flex items-center justify-center overflow-hidden border border-[#0B0B0C]">
+                                        <ReactBeforeSliderComponent
+                                            firstImage={{ imageUrl: img.redesign_url }}
+                                            secondImage={{ imageUrl: img.original_url }}
+                                            delimiterColor="#0F766E"
+                                        />
+                                    </div>
+                                )}
                             </div>
                         </motion.div>
                     ))}

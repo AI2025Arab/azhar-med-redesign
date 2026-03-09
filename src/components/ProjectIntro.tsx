@@ -40,7 +40,7 @@ export default function ProjectIntro() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="grid grid-cols-2 gap-6"
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8"
                     >
                         {[
                             { label: "AI Generate Rate", value: "100%", desc: "تصميم توليدي كامل" },
@@ -48,9 +48,18 @@ export default function ProjectIntro() {
                             { label: "Institution", value: "Al-Azhar", desc: "كلية الطب بنين" },
                             { label: "Design Code", value: "Islamic", desc: "طراز حديث بلمسة تراثية" },
                         ].map((stat, idx) => (
-                            <div key={idx} className="bg-[#1A1A1A] border border-[#1F1F22] p-6 rounded-sm hover:border-[#0F766E] transition-colors">
-                                <span className="block text-[#0F766E] font-inter text-xs tracking-widest font-bold uppercase mb-4">{stat.label}</span>
-                                <span className="block text-4xl font-bold text-[#F5F5F4] mb-2 font-inter">{stat.value}</span>
+                            <div
+                                key={idx}
+                                className="bg-[#1A1A1A] border border-[#1F1F22] p-6 rounded-sm hover:border-[#0F766E] transition-colors flex flex-col justify-center items-center text-center overflow-hidden"
+                            >
+                                <span className="block text-[#0F766E] font-inter text-xs tracking-widest font-bold uppercase mb-4">
+                                    {stat.label}
+                                </span>
+                                <span
+                                    className="block font-bold text-[#F5F5F4] mb-2 font-inter text-[clamp(28px,4vw,48px)] break-words [overflow-wrap:break-word] [word-break:break-word]"
+                                >
+                                    {stat.value}
+                                </span>
                                 <span className="block text-sm text-[#E7E3DB]">{stat.desc}</span>
                             </div>
                         ))}

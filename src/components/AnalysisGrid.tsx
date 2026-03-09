@@ -18,7 +18,7 @@ export default function AnalysisGrid() {
                     <p className="text-[#888888] max-w-2xl font-inter">Architectural Site Analysis & Evaluation</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                     {analysisItems.map((item, idx) => (
                         <motion.div
                             key={item.id}
@@ -28,12 +28,14 @@ export default function AnalysisGrid() {
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
                             className="group bg-[#1A1A1A] border border-[#1F1F22] overflow-hidden hover:border-[#C9A227] transition-all duration-500"
                         >
-                            <div className="relative h-64 w-full border-b border-[#1F1F22] overflow-hidden">
+                            <div className="relative w-full border-b border-[#1F1F22] overflow-hidden bg-[#0B0B0C] flex items-center justify-center">
                                 <Image
                                     src={item.original_url}
                                     alt={item.title}
-                                    fill
-                                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                    width={1600}
+                                    height={900}
+                                    loading="lazy"
+                                    className="w-full h-auto max-w-full object-contain object-center grayscale group-hover:grayscale-0 transition-all duration-700"
                                 />
                                 <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 text-xs text-[#E7E3DB] border border-white/10 font-inter tracking-widest uppercase">
                                     EXISTING STATE

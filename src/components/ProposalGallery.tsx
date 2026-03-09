@@ -25,7 +25,7 @@ export default function ProposalGallery() {
                     <p className="text-[#888888] font-inter tracking-widest uppercase text-sm">Architectural Proposals Gallery</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                     {columns.map((col, colIdx) => (
                         <div key={colIdx} className="flex flex-col gap-6">
                             {col.map((img, imgIdx) => (
@@ -38,12 +38,14 @@ export default function ProposalGallery() {
                                     className="group relative cursor-zoom-in overflow-hidden bg-[#1A1A1A] border-4 border-[#1F1F22] hover:border-[#0F766E] transition-colors duration-500"
                                     onClick={() => setSelectedImage(img)}
                                 >
-                                    <div className={`relative w-full ${img.isHorizontal ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
+                                    <div className="relative w-full bg-[#0B0B0C] flex items-center justify-center">
                                         <Image
                                             src={img.url}
                                             alt={img.title}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                                            width={1600}
+                                            height={900}
+                                            loading="lazy"
+                                            className="w-full h-auto max-w-full object-contain object-center"
                                         />
                                         <div className="absolute inset-0 bg-[#0B0B0C]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                             <span className="text-[#E7E3DB] font-bold tracking-wide backdrop-blur-md px-6 py-3 border border-white/10 shadow-xl">

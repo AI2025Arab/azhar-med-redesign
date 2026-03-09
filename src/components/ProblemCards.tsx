@@ -29,7 +29,7 @@ export default function ProblemCards() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                     {problems.map((prob, idx) => (
                         <motion.div
                             key={idx}
@@ -39,12 +39,14 @@ export default function ProblemCards() {
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             className="group relative bg-[#1A1A1A] border border-[#1F1F22] overflow-hidden hover:border-[#0F766E] transition-all duration-500"
                         >
-                            <div className="relative w-full aspect-[4/3] overflow-hidden grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+                            <div className="relative w-full bg-[#0B0B0C] flex items-center justify-center overflow-hidden grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
                                 <Image
                                     src={prob.original_url}
                                     alt={prob.title}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                    width={1600}
+                                    height={900}
+                                    loading="lazy"
+                                    className="w-full h-auto max-w-full object-contain object-center"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0C] to-transparent" />
                             </div>

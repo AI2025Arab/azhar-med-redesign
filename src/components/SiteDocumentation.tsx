@@ -23,7 +23,7 @@ export default function SiteDocumentation() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-8">
                     {docs.map((doc, idx) => (
                         <motion.div
                             key={doc.id}
@@ -37,7 +37,8 @@ export default function SiteDocumentation() {
                                 src={doc.url}
                                 alt=""
                                 fill
-                                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 opacity-60 group-hover:opacity-100"
+                                loading="lazy"
+                                className="object-contain object-center grayscale transition-all duration-700 opacity-60 group-hover:opacity-100 bg-[#0B0B0C]"
                             />
 
                             {/* Overlay with ID / Index */}

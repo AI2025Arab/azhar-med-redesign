@@ -26,7 +26,7 @@ export default function GallerySlider() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {FIRST_IMAGES.map((img, idx) => (
                     <motion.div
                         key={img.id}
@@ -37,12 +37,14 @@ export default function GallerySlider() {
                         className="group cursor-pointer relative overflow-hidden rounded-xl border border-white/10 bg-card hover:border-primary/50 transition-colors"
                         onClick={() => openModal(img)}
                     >
-                        <div className={`relative w-full ${img.aspect_ratio === 'horizontal' ? 'aspect-video' : 'aspect-[3/4]'}`}>
+                        <div className="relative w-full bg-black flex items-center justify-center">
                             <Image
                                 src={img.redesign_url}
                                 alt={img.title}
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                width={1600}
+                                height={900}
+                                loading="lazy"
+                                className="w-full h-auto max-w-full object-contain object-center"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                                 <h3 className="text-xl font-bold">{img.title}</h3>

@@ -21,7 +21,7 @@ export default function ExperimentsGallery() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 auto-rows-[320px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 auto-rows-[320px]">
                 {projectData.experiments.map((banner, idx) => (
                     <motion.div
                         key={banner.id}
@@ -32,15 +32,16 @@ export default function ExperimentsGallery() {
                         className={`group relative cursor-zoom-in overflow-hidden bg-black border-[4px] border-[#1a1a1a] hover:border-primary/40 transition-all duration-500 shadow-2xl p-1.5 ${banner.isHorizontal ? "md:col-span-2" : "col-span-1 row-span-2"
                             }`}
                         onClick={() => openBanner(banner)}
-                    >
-                        {/* Third Architectural Frame */}
-                        <div className="relative w-full h-full border border-white/10 overflow-hidden">
-                            <Image
-                                src={banner.url}
-                                alt={banner.title}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
+                        >
+                            {/* Third Architectural Frame */}
+                            <div className="relative w-full h-full border border-white/10 overflow-hidden bg-black flex items-center justify-center">
+                                <Image
+                                    src={banner.url}
+                                    alt={banner.title}
+                                    fill
+                                    loading="lazy"
+                                    className="object-contain object-center transition-transform duration-700"
+                                />
 
                             {/* Overlay Style - Premium Reveal */}
                             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 h-1/2 flex flex-col justify-end p-6">

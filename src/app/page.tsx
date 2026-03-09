@@ -9,6 +9,7 @@ import SwotMatrix from "@/components/SwotMatrix";
 import ProblemCards from "@/components/ProblemCards";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ProposalGallery from "@/components/ProposalGallery";
+import DeanProfileSection from "@/components/DeanProfileSection";
 import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 
@@ -42,7 +43,10 @@ export default function Home() {
         {/* Section 5 & 6: Proposal Image Boards & Gallery with Lightbox */}
         <ProposalGallery />
 
-        {/* Section 7: Team Profiles */}
+        {/* Section 7: Academic Leadership */}
+        <DeanProfileSection />
+
+        {/* Section 8: Team Profiles */}
         <TeamSection />
       </main>
 

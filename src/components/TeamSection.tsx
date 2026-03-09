@@ -55,7 +55,8 @@ export default function TeamSection() {
                                         src={member.image}
                                         alt={member.name}
                                         fill
-                                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                        loading="lazy"
+                                        className="object-contain object-center grayscale group-hover:grayscale-0 transition-all duration-700"
                                     />
                                 ) : (
                                     <span className="text-3xl font-bold text-[#C9A227]">
