@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-plex: var(--font-plex);
+  --font-inter: var(--font-inter);
+
+  /* Architectural Luxury Colors */
+  --color-arch-black: #0B0B0C;
+  --color-stone-white: #F5F5F4;
+  --color-medical-emerald: #0F766E;
+  --color-islamic-gold: #C9A227;
+  --color-muted-sandstone: #E7E3DB;
+
+  /* Map to UI standard variables to keep shadcn components somewhat intact, though we override backgrounds */
+  --color-background: var(--color-arch-black);
+  --color-foreground: var(--color-stone-white);
+
+  --color-primary: var(--color-islamic-gold);
+  --color-primary-foreground: var(--color-arch-black);
+
+  --color-secondary: var(--color-muted-sandstone);
+  --color-secondary-foreground: var(--color-arch-black);
+
+  --color-accent: var(--color-medical-emerald);
+  --color-accent-foreground: var(--color-stone-white);
+
+  --color-muted: #1A1A1A;
+  /* slightly lighter than arch-black */
+  --color-muted-foreground: #888888;
+
+  --color-border: #1F1F22;
+  --color-input: #1F1F22;
+  --color-ring: var(--color-islamic-gold);
+
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[var(--color-arch-black)] text-[var(--color-stone-white)] font-plex antialiased selection:bg-[var(--color-islamic-gold)] selection:text-[var(--color-arch-black)];
+  }
+
+  /* Typography Styles dictated */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+}

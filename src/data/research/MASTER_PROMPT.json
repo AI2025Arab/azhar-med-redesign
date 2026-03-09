@@ -1,0 +1,453 @@
+{
+    "objective": "Transform input photograph into marketing-grade architectural photograph showing completed facade renovation. Output = REAL photograph, NOT render/CGI/concept.",
+    "core_philosophy": {
+        "approach": "GRADUAL REALISTIC IMPROVEMENT — closer to reality, NOT fantasy rebuild. This is a SURFACE UPGRADE of the EXISTING facade. NOT demolition. NOT reconstruction. NOT redesign.",
+        "facade_only": "I am developing the FACADE ONLY. The building structure, mass, skeleton, slabs, columns — ALL stay IDENTICAL. Only the SKIN (surfaces, finishes, paint, screens, details) changes.",
+        "everything_stays": "EVERY SINGLE ELEMENT that exists in the input photograph STAYS AS-IS in its EXACT position/shape/size. The ONLY thing that happens is IMPROVEMENTS and UPGRADES applied ON TOP of what already exists. Nothing is removed. Nothing is relocated. Nothing is reshaped. Things are only ENHANCED.",
+        "concrete_slab_preservation": "Same concrete slab, same stretcher beam, same structural system — ALL remain EXACTLY as they are. The concrete skeleton is UNTOUCHABLE.",
+        "mass_shape_prohibition": "FORBIDDEN to change the shape of the building mass. FORBIDDEN to add a volume where none exists. FORBIDDEN to remove a volume that exists. The 3D silhouette of the building = FROZEN.",
+        "maximize_within_constraints": "Within ALL the above constraints — develop the ABSOLUTE MAXIMUM possible. Every surface that CAN be improved MUST be improved. Every detail that CAN be added MUST be added. Every element that CAN be enhanced MUST be enhanced. Push the upgrade to the furthest possible extent WITHOUT violating any preservation rule."
+    },
+    "frame_lock": {
+        "priority": "HIGHEST — violating this INVALIDATES the entire output. This rule is NON-NEGOTIABLE.",
+        "rules": [
+            "Output dimensions (px) = Input dimensions EXACTLY — same width, same height",
+            "Output framing/cropping/boundaries = Input EXACTLY, pixel-for-pixel",
+            "If building is partially cropped at ANY edge in input → stays cropped IDENTICALLY in output",
+            "NEVER extend/outpaint/complete/fill-in beyond original photo edges",
+            "NEVER zoom out, pan, widen FOV, shift camera position, or change focal length",
+            "1:1 spatial pixel mapping — every pixel position in output = same spatial location as input",
+            "Input photo = LOCKED VIEWPORT. Operate ONLY within it. Nothing outside the frame is generated."
+        ],
+        "edge_cases_strictly_enforced": [
+            "If the building is CUT OFF at the left edge → it stays CUT OFF at the EXACT same position. Do NOT complete the missing part.",
+            "If the building is CUT OFF at the right edge → stays CUT OFF IDENTICALLY.",
+            "If the rooftop is CROPPED at the top → stays CROPPED at the exact same pixel line.",
+            "If a tree/wall/fence is CUT at the frame edge → stays CUT at the exact same edge.",
+            "If only HALF the facade is visible → only HALF appears in output. Do NOT show the other half.",
+            "If the photo was taken from a phone and doesn't capture the full building → the output also does NOT capture the full building. Same incomplete view = same incomplete output.",
+            "The model MUST NOT try to 'help' by showing more of the building. The user wants EXACTLY the same frame.",
+            "REPEAT: The sides of the image must NOT look different from the input. If a mass/element is partially visible at the edge, it stays partially visible. No outpainting. No extending. No completing."
+        ],
+        "model_behavior_warning": "The model has previously IGNORED this rule and tried to complete/extend the scene. This is STRICTLY FORBIDDEN. If the model cannot produce the output within the locked viewport, it must still try — but NEVER alter the frame boundaries."
+    },
+    "preservation_absolute": {
+        "zero_deviation": [
+            "Camera angle, viewpoint, perspective",
+            "Composition, framing, field of view",
+            "Building mass, volumetric shape, silhouette",
+            "Number of floors — no add/remove",
+            "Floor-to-floor heights — no stretch/compress",
+            "Structural system — every column, beam, slab edge: IDENTICAL position/size/proportion",
+            "Window grid layout — every window: IDENTICAL position",
+            "Building footprint shape — no curves on rectilinear, no extensions",
+            "Entrance locations — no add/remove/relocate",
+            "Relationship between buildings — relative positions IDENTICAL",
+            "Landscape layout — tree/hedge/planter/pathway positions FIXED",
+            "Ground topography — no raising/lowering/regrading"
+        ],
+        "prohibited": [
+            "Add/remove floors",
+            "Change building proportions (height/width/depth)",
+            "Alter footprint or plan shape",
+            "Change structural grid spacing",
+            "Relocate/add/remove columns, beams, walls",
+            "Change window grid positions",
+            "Alter campus layout or building relationships",
+            "Demolish any building/wing/section",
+            "Add entrance where none exists",
+            "Change rectilinear to curved form",
+            "Add towers, domes, minarets, new vertical elements",
+            "Change camera angle/perspective/viewpoint",
+            "Change landscape layout (tree/path/planter positions)",
+            "Change building silhouette against sky"
+        ]
+    },
+    "variable_removal": {
+        "remove_all": [
+            "people",
+            "pedestrians",
+            "students",
+            "staff",
+            "visitors",
+            "cars",
+            "motorcycles",
+            "bicycles",
+            "parked vehicles",
+            "moving vehicles",
+            "temporary objects"
+        ],
+        "result": "Pristine unpopulated state — early morning before activity",
+        "replacement": "Underlying architecture/landscape/paving behind removed elements"
+    },
+    "identity_direction": {
+        "fusion_concept": "ONE singular visual language = 'Al-Azhar Medicine' — Islamic heritage + medical precision + contemporary design INSEPARABLE",
+        "themes": {
+            "islamic_soul": {
+                "source": "Al-Azhar University (founded 970 AD)",
+                "elements": [
+                    "8-pointed star tessellations from existing mashrabiya",
+                    "Arabesque curves in metal panels",
+                    "Muqarnas at existing canopy soffits ONLY"
+                ],
+                "integration": "Patterns must feel grown from building's structural logic — NOT stickers",
+                "character": "BOLD, CONFIDENT, VISUALLY STUNNING — but NOT mosque. World-class UNIVERSITY with proud Islamic identity"
+            },
+            "medical_precision": {
+                "expression": [
+                    "Clinical precision in geometric alignment — every joint measured to millimeter",
+                    "Absolute CLEANLINESS — building as surgical instrument",
+                    "Optional Rod of Asclepius / DNA helix at entrance metalwork ONLY"
+                ],
+                "atmosphere": "Scientific rigor, hygiene, academic excellence. Nobel Prize-caliber research institute feel"
+            },
+            "contemporary_modernity": {
+                "benchmark": [
+                    "KAUST",
+                    "Aga Khan Award campuses",
+                    "AUC New Campus",
+                    "Best European medical universities"
+                ],
+                "language": "Precise joints, controlled geometric forms, parametric detailing. '2025, not 1985'"
+            },
+            "institutional_gravitas": {
+                "qualities": [
+                    "Authority",
+                    "Permanence",
+                    "Scholarly gravitas"
+                ],
+                "materials_feel": "HEAVY, REAL — not lightweight/temporary",
+                "mantra": "This institution stood 1000 years and will stand 1000 more"
+            }
+        }
+    },
+    "facade_strategy": {
+        "approach": "GRADUAL REALISTIC SURFACE UPGRADE of EXISTING facade. NOT demolition-rebuild. NOT redesign. Every structural element (columns, beams, slabs, walls, stairs) stays IDENTICAL in position/size/shape. ONLY surface finishes and decorative additions change. The result must look like a real renovation that was actually built — not a fantasy concept.",
+        "what_stays_identical": [
+            "Concrete structural frame (columns, beams, slabs, walls) — every element in EXACT position",
+            "Concrete slab edges and stretcher beams — IDENTICAL thickness and position",
+            "Window openings — EXACT positions and sizes on the structural grid",
+            "Door/entrance openings — EXACT positions",
+            "Staircase locations and forms",
+            "Building mass and 3D volumetric shape",
+            "Roof form and parapet line",
+            "Floor count and floor-to-floor heights",
+            "Structural grid spacing (column-to-column distance)",
+            "AC unit positions (units stay, covered with screens)",
+            "Mashrabiya screen positions",
+            "All pipes/conduits positions (concealed with covers but not relocated)"
+        ],
+        "what_changes": [
+            "Wall surface finishes (paint/plaster quality upgraded)",
+            "Colors refined (warm ivory + deep navy)",
+            "Decorative screens ADDED OVER existing AC units",
+            "Decorative screens REPLACE existing security bars",
+            "Window frames and glass quality upgraded",
+            "Micro-details added (cornices, column bands, window surrounds, base plinth, parapet cap)",
+            "Lighting fixtures added",
+            "Signage standardized",
+            "Landscape quality improved + new elements in empty areas",
+            "All surfaces cleaned to perfection",
+            "Exposed wiring/pipes concealed behind covers"
+        ],
+        "treatments": {
+            "plaster_walls": {
+                "upgrade": "Pristine smooth exterior plaster, warm ivory",
+                "standard": "Zero peeling/stains/watermarks/grime/mold/cracks/discoloration",
+                "light_behavior": "Warm honey-gold glow under golden hour; subtle tonal variations (warmer in sun, cooler in shadow)"
+            },
+            "blue_vertical_elements": {
+                "action": "Retain EXACT positions/shapes. Repaint to deep navy (Al-Azhar Academic Navy)",
+                "finish": "Precision-grade anodized-look. Rich satin depth — midnight desert sky, not flat/chalky",
+                "standard": "Zero dirt/fading/screw heads/panel gaps"
+            },
+            "windows": {
+                "position": "EXACT — every window stays",
+                "frames": "Clean uniform dark grey/navy aluminum with shadow-gap joints",
+                "glass": "Perfect transparency + subtle blue-green solar tint. Rich golden sky + green canopy reflections",
+                "curtains": "Uniform soft ivory or light grey. No interior clutter visible"
+            },
+            "ac_units": {
+                "action": "Keep in EXACT positions. Cover with laser-cut Islamic geometric metal screens (navy/dark tone)",
+                "purpose": "AC hidden behind elegant architect-designed screens = decorative facade element + shading",
+                "pipes": "Concealed behind matching panels or painted to match wall"
+            },
+            "mashrabiya_screens": {
+                "action": "Retain EXACT positions. Restore to pristine white. Remove all grime/bird droppings/soot/biological growth",
+                "repair": "Fix all cracks/chips/spalling",
+                "optional": "Warm amber 2700K LED backlight (dusk/evening only) — glowing lantern effect"
+            },
+            "entrance_portals": {
+                "granite": "Mirror-polish — trees/sky/architecture reflected. Crystalline sparkle points visible. Deepest black like night sky with stars",
+                "gold_lettering": "Restored to bright gold — CATCHES LIGHT with warm specular highlight. Hand-finished master craftsman quality",
+                "glass_doors": "Perfect transparency. Hardware pristine"
+            },
+            "exposed_wiring": "Conceal ALL behind slim cover channels matching wall OR flush recessed channels. ZERO loose wires visible",
+            "security_bars": "Replace utilitarian bars → laser-cut Islamic geometric metal screens matching AC screens. Architect-designed, not prison"
+        },
+        "micro_details": {
+            "column_ornaments": "Slim decorative capital band (100mm) at column-slab junction — brushed bronze/navy metal ring with Islamic geometric relief",
+            "slab_cornices": "Continuous slim cornice molding (80mm depth) at slab edges — profiled plaster/metal in darker ivory or navy",
+            "window_surrounds": "Recessed 30mm shadow-frames in darker tone. Profiled sill with drainage slope",
+            "building_base_plinth": "Ground to 1200mm: differentiated treatment — textured darker plaster or stone-effect cladding strip. Wraps ALL visible sides",
+            "parapet_roofline": "Slim aluminum/stone coping (150mm) in brushed bronze/navy — precise architectural termination",
+            "rainwater_drainage": "Architectural-grade pipes painted navy, routed along column lines with clean brackets",
+            "expansion_joints": "Flush-mounted brushed stainless steel cover strips",
+            "floor_indicators": "Optional brushed bronze numerals (100mm) at slab edge on anchor column"
+        },
+        "unification": "Renovated + unrenovated wings → SAME refined palette (ivory + navy). Seamless ONE cohesive campus",
+        "service_areas": "Same upgrade: pristine ivory walls, charcoal grey service enclosures, clean paving, bilingual signage, freshly painted doors",
+        "cleanliness": "ABSOLUTE PERFECTION — zero stains/peeling/grime/cracks/ad-hoc signage/loose posters. Top-tier medical institution standard"
+    },
+    "materials": {
+        "quality_standard": "MARKETING-GRADE — photographed for international architecture magazine cover",
+        "palette": {
+            "primary_70pct": {
+                "name": "Warm Ivory",
+                "hex": "#E8DCC8 to #D4C5A9",
+                "finish": "Smooth matte with subtle texture. Warm honey glow in golden hour. Tonal micro-variations"
+            },
+            "secondary_20pct": {
+                "name": "Al-Azhar Academic Navy",
+                "hex": "#1B2A4A to #2C3E6B",
+                "finish": "Precision anodized-look satin. Deep luxurious midnight depth"
+            },
+            "accent_5pct": {
+                "name": "Brushed Gold",
+                "hex": "#B8860B to #C5975C",
+                "use": "Entrance signage/hardware ONLY. Catches light with warm specular highlight"
+            },
+            "neutral_5pct": {
+                "name": "Charcoal Ground",
+                "hex": "#3A3A3A to #505050",
+                "use": "Paving tones, shadow zones, recessed facade areas"
+            },
+            "heritage_optional": {
+                "name": "Corten Steel Rust",
+                "hex": "#8B4513 to #A0522D",
+                "finish": "Living weathering patina — lighter edges, deeper recesses"
+            }
+        },
+        "decorative_screens": "Laser-cut Islamic geometric metal. Navy or Corten. Under golden hour = SPARKLING FILIGREE — cut edges catch thin bright light lines like illuminated jewelry",
+        "glazing": "Blue-green tint solar glass. Golden sky + green canopy reflections = visual DEPTH. Opposing wing reflections = doubled geometry",
+        "ground": "WET-LOOK SHEEN — freshly rain-washed richest saturated color. Razor-straight joints. No weeds",
+        "prohibited_colors": [
+            "bright red",
+            "neon green",
+            "orange",
+            "pink",
+            "random colors",
+            "mismatched curtains",
+            "colorful posters/banners"
+        ]
+    },
+    "shading_systems": {
+        "horizontal_elements": "Add slim 200mm aluminum brise-soleil (navy anodized) ATTACHED to existing structural ledges — surface-mounted only",
+        "vertical_fins": "Existing → refinished deep navy. Optional 100-200mm slim extension panel",
+        "mashrabiya": "Existing screens = primary shading. Cleaned, restored, optionally backlit",
+        "entrance_canopies": "Existing ONLY → refine soffit with muqarnas relief + recessed downlights. NO new canopies unless entrance has zero weather protection",
+        "ac_screens_as_shading": "Islamic screens over AC = integrated facade shading, creating dappled light",
+        "tree_canopy": "Existing trees = natural shading. Improve to healthy, well-pruned, lush"
+    },
+    "lighting_and_dramatic_effects": {
+        "overall": "MARKETING-GRADE CINEMATIC golden-hour. 25-35° west sun, 4500K ambient + 3000K highlights. Every surface ALIVE — ivory glows honey-gold, navy develops satin depth, metalwork sparkles",
+        "facade_wash": "Linear LED wall-wash (4000K) at facade base — raking light reveals plaster texture",
+        "entrance": "DRAMATIC ground-recessed LED uplighting — granite shimmers, gold lettering produces eye-catching specular highlights. BRIGHTEST focal point in image",
+        "mashrabiya_backlight": "Dusk/evening: stunning 2700K amber glow through perforations = GLOWING LANTERN. Ethereal sacred light quality",
+        "signature_effects": {
+            "islamic_shadow_projections": "Sunlight through mashrabiya/screens → SHARP geometric shadow patterns (8-pointed stars, arabesques) projected on walls/floors/columns. Ordinary sunlight = ARCHITECTURAL ART. Physically accurate angles consistent with golden-hour position. THE SIGNATURE EFFECT",
+            "golden_edge_glow": "ALL metalwork (fins, handrails, gold letters, screen edges, cornice caps, parapet coping) → thin warm GOLDEN HIGHLIGHT LINE on edges catching direct sunlight. Every metal element SPARKLES and POPS",
+            "water_reflections": "Water features show PERFECT MIRROR REFLECTIONS — building, Islamic screens, golden sky, green canopies. Slightly darker/more saturated than reality. Subtle edge ripple",
+            "pilotis_light_play": "Ground-floor open columns → DRAMATIC light-shadow alternation. Rhythmic light-dark pattern. Long defined geometrically regular column shadows",
+            "tree_dappled_light": "Trees cast BEAUTIFUL organic dappled shadow patterns on walls/paths. Organic vs geometric dialogue"
+        },
+        "pathway": "Bronze bollards (750mm, 3000K) every 4m. LED strips under planter/seat edges = floating halo. Tree canopy uplighting = warm green-gold translucent glow",
+        "cornice_line": "Thin warm LED strip under parapet = golden line separating architecture from sky",
+        "sky": "STUNNING golden-hour: deep blue zenith → pale blue mid → rich golden-peach horizon. Optional thin cirrus clouds for texture. No storms. Warm Cairo atmospheric haze. VAST, WARM, BEAUTIFUL"
+    },
+    "landscape": {
+        "critical_rule": "Existing layout EXACTLY fixed. ONLY improve visual quality + ADD new elements in EMPTY areas",
+        "existing_upgrades": {
+            "trees": "EXACT position/size. Healthy, lush, vibrant, well-pruned. Remove dead branches/leaf litter",
+            "hedges": "EXACT position. Perfectly trimmed, uniform, vibrant green",
+            "pathways": "EXACT position. Clean, even, no weeds, crisp edges. Same material type, freshly installed look",
+            "planters": "EXACT position. Clean/sealed stone. No bare soil — curated shrubs + ground cover",
+            "garden_beds": "EXACT position. No litter/debris. Bark mulch. Bougainvillea (magenta) + Jasmine (white)"
+        },
+        "new_in_empty_areas": {
+            "maximize": true,
+            "elements": [
+                {
+                    "type": "water_mirror",
+                    "spec": "50mm depth, polished black granite base, perfectly still/clear reflecting sky + screens"
+                },
+                {
+                    "type": "seating",
+                    "spec": "Brushed bronze frames + FSC teak slats. Along paths, under trees, facing facades. Clusters (2-3 L/U shaped) around planters/water in larger zones"
+                },
+                {
+                    "type": "shade_structures",
+                    "spec": "Tensile fabric shade sails (ivory/navy canvas on steel masts) OR timber-steel pergolas with climbing Bougainvillea. Architect-designed — NOT cheap"
+                },
+                {
+                    "type": "fountains",
+                    "spec": "Low geometric Islamic design, stone basin, star-pattern water jets. Polished dark granite edges with LED"
+                },
+                {
+                    "type": "geometric_paving",
+                    "spec": "Entrance plaza: contrasting darker stone inlays forming Islamic star pattern echoing mashrabiya"
+                },
+                {
+                    "type": "flagpoles",
+                    "spec": "2-3 polished stainless steel (8m). Al-Azhar + Egyptian flags. Clean, properly hung. Polished granite bases"
+                },
+                {
+                    "type": "digital_kiosks",
+                    "spec": "1-2 slim stainless steel outdoor info displays on approach path. Not blocking entrance axis"
+                },
+                {
+                    "type": "bicycle_rack",
+                    "spec": "Modern stainless steel (8-12 capacity). Minimalist. Currently empty"
+                },
+                {
+                    "type": "waste_bins",
+                    "spec": "Sleek stainless steel + navy accent panels. Beside benches/path intersections"
+                },
+                {
+                    "type": "lighting_columns",
+                    "spec": "4m, brushed bronze, 3000K, Islamic geometric lantern head. Along main paths + plaza corners"
+                },
+                {
+                    "type": "perimeter_fence",
+                    "spec": "Low stone wall (900mm) + black powder-coated steel fence (1200mm) with laser-cut Islamic panels + inside evergreen hedges"
+                },
+                {
+                    "type": "planter_boxes",
+                    "spec": "Low stone (400mm H × 600mm D) at bare wall bases. Trimmed shrubs + seasonal flowers"
+                },
+                {
+                    "type": "sculptural_art",
+                    "spec": "ONE: contemporary abstract geometric (Corten steel / polished granite). Islamic geometry or DNA helix motif. Max 2.5m. Commissioned campus art feel"
+                }
+            ]
+        },
+        "cleanup": "Remove ALL litter, construction debris, abandoned furniture, stored equipment, temporary objects from all ground surfaces"
+    },
+    "entrance_enhancement": {
+        "critical": "Modify ONLY existing entrances. NEVER add entrances to blank walls/windows",
+        "portal": "Polish granite pristine. Restore signage factory-fresh. Clean glass+hardware. Arabic Naskh calligraphy — premium custom-designed",
+        "steps": "Clean surfaces, fix chips, anti-slip strips (stainless), brushed bronze/stainless handrails",
+        "canopy": "Existing ONLY → clean soffit, lighting, optional muqarnas relief. Add minimal canopy ONLY if zero weather protection exists",
+        "forecourt": "Impeccable paving, directional flow, ground LED strips at step edges + floor uplights on portal",
+        "accessibility": "Add ONE 1:20 ramp if none exists and space allows — matching materials, seamless integration"
+    },
+    "medical_identity": {
+        "signage": "Standardized bilingual (Arabic Noto Naskh Bold + English Didot/serif). Optional Rod of Asclepius in brushed metal. Consistent brushed bronze frames, white translucent backlit backgrounds, uniform heights",
+        "atmosphere": "Precision + hygiene + scientific excellence. Achieved through CLEANLINESS and PRECISION — not symbol overload",
+        "interior_through_glass": "Clean modern spaces with warm LED. Reception: white Corian desk, backlit institutional emblem, polished stone floors",
+        "safety_features": "Fire extinguisher cabinets (recessed/glass doors), illuminated emergency exit panels — professional institutional standard",
+        "ambulance_bay": "If visible: clean, clearly marked, well-lit, organized"
+    },
+    "islamic_integration": {
+        "pattern_hierarchy": {
+            "architectural_scale": "Existing concrete mashrabiya screens — restored to gleaming white",
+            "medium_scale": "Laser-cut AC covers + security window screens — same geometric DNA",
+            "small_scale": "Entrance door etchings + signage frame corners",
+            "ground_scale": "Entrance plaza geometric paving pattern"
+        },
+        "mashrabiya_rhythm": "Screen perforation rhythm harmonizes with adjacent vertical fin rhythm — traditional → contemporary transition without jarring break",
+        "muqarnas": "ONLY at existing canopy soffits — contemporary relief panel in white. NEVER on facades/walls",
+        "calligraphy": "Arabic entrance signage = premium Naskh calligraphy — NOT generic computer typeface",
+        "courtyard_principles": "Islamic garden: geometry, symmetry, water, shade, aromatics. Chahar Bagh tradition"
+    },
+    "realism_constraints": {
+        "output_type": "STUNNING marketing-grade architectural photograph — Architectural Digest / Dezeen / ArchDaily cover quality. BEST photographer, BEST equipment, PERFECT golden-hour moment. Makes viewer say 'WOW'",
+        "photographic_qualities": {
+            "lighting": "Golden-hour cinematic — every surface glows with warmth",
+            "contrast": "Boosted beyond typical photography — darks deeper, highlights warmer, punchy magazine-quality tonal range",
+            "saturation": "15-20% above ordinary photography — ivory warmer, navy deeper, greens more vibrant, sky more golden",
+            "material_texture": "Exaggerated tactile quality — FEEL stone grain, SEE metal sheen, SENSE glass smoothness",
+            "shadows": "Crisp + well-defined with warm fill-light in shadow areas — not black voids",
+            "sky": "Beautiful dramatic golden-blue gradient + optional thin cirrus. Sky alone = worthy photograph",
+            "atmosphere": "Warm Cairo haze adding atmospheric depth layers",
+            "depth_of_field": "Tack-sharp foreground + midground, slightest background softening — cinematic depth",
+            "grain": "ISO 100 medium-format sensor — extremely fine, near-invisible",
+            "tonal_zones": "3 distinct zones: bright highlights (sky/sunlit walls), rich midtones (shaded walls/vegetation), deep shadows (pilotis/recesses) — sculptural 3D quality"
+        },
+        "prohibited": [
+            "Artificial glow/lens flare/bloom",
+            "Heavy vignetting",
+            "HDR tonemapping artifacts",
+            "Unrealistic oversaturation",
+            "Artificial fog",
+            "Dramatic storm clouds",
+            "Reflection mapping errors",
+            "Levitating objects / transparent walls",
+            "Wireframes / duplicated textures / warped geometry",
+            "Cartoon / watercolor / painterly effects",
+            "Any effect that feels PROCESSED or FILTERED — must feel NATURAL"
+        ],
+        "material_accuracy_marketing": {
+            "plaster": "Finest ever applied — surface texture catching raking golden light, warm matte sheen with micro-variations",
+            "metal": "Most expensive — rich reflections, perfectly oriented brushed grain, satin anodized depth",
+            "glass": "Premium architectural — warm sky + green canopy reflections blended, blue-green tint, sharp mullion shadows, well-lit interior suggestion",
+            "stone": "Quarried Egyptian limestone at peak — warm fossil inclusions, crystalline sparkle, geological WEIGHT/PERMANENCE",
+            "water": "MIRROR-PERFECT — undistorted reflections, faintest edge ripple",
+            "plants": "IMPOSSIBLY LUSH — every leaf catching golden light with subsurface scattering, abundant life, careful cultivation",
+            "decorative_screens": "Museum-quality — precise laser-cut edges catching golden highlights, geometric patterns casting shadow artwork"
+        }
+    },
+    "visual_richness_checklist": [
+        "Warm golden light on all sun-facing surfaces — honey-gold luminosity",
+        "Deep rich shadows in recesses — warm-grey with visible detail, not black",
+        "Geometric shadow patterns from screens projected on walls/ground — sharp + dramatic",
+        "Golden edge highlights on ALL metalwork — thin warm specular lines",
+        "Mirror reflections in polished black granite — sharp, warm, trees+sky",
+        "Rich glass reflections — golden sky + green trees in every pane",
+        "Water mirror reflections — perfect inverted building + sky",
+        "Lush vibrant vegetation — golden light subsurface glow, perfect trimming, flowers in bloom",
+        "Dappled tree shadows — organic patterns on paths/walls",
+        "Pristine paving wet-look sheen — richest saturated tones",
+        "Atmospheric depth — warm haze layers foreground to background",
+        "Dramatic sky — rich golden-blue gradient + thin cirrus texture",
+        "Consistent warm color temperature — no cold zones",
+        "3D sculptural quality — every element has clear light-side + shadow-side",
+        "Islamic pattern coherence at ALL scales — screens → metalwork → paving → signage",
+        "Medical precision + cleanliness — razor-straight joints, flawless surfaces, perfect alignment",
+        "Institutional gravitas — IMPORTANT, PERMANENT, AUTHORITATIVE",
+        "OVERALL WOW — architectural photography award winner. 'I want to study here'"
+    ],
+    "allowed_modifications_summary": [
+        "Wall paint/plaster quality + colors",
+        "Surface textures + decorative screen additions (AC/security bars)",
+        "Column ornamental bands + slab edge cornices",
+        "Window surrounds + glass/frame refinishing",
+        "Building base plinth + parapet coping",
+        "Rainwater pipe refinishing",
+        "Entrance portal restoration + canopy enhancement",
+        "Lighting fixture additions",
+        "Landscape visual quality improvement",
+        "New landscape in EMPTY areas (water/seating/fountains/shade/benches/bins/racks/flags/kiosks/art/paving/planters)",
+        "Signage restoration + standardization",
+        "Paving condition improvement",
+        "Surface-level architectural detailing",
+        "Curtain/blind uniformity behind windows",
+        "Concealing exposed wiring/pipes behind matching covers"
+    ],
+    "critical_user_notes": {
+        "note_1_gradual": "التطوير تدريجي أقرب للواقع — Gradual realistic development, not fantasy. The output must look like it could ACTUALLY be built with real construction on the existing building.",
+        "note_2_facade_only": "أنا بطور الواجهه فقط — I am developing the FACADE ONLY. Same floors, same height, same concrete slab, same stretcher, same structural system. NOTHING structural changes.",
+        "note_3_everything_stays": "كل حاجة موجودة في الصورة تتم زي ما هي مع إنشاء تطويرات لها — Everything that exists in the photo stays EXACTLY as-is. Only improvements and upgrades are added ON TOP.",
+        "note_4_mass_forbidden": "ممنوع تغير شكل الكتلة — FORBIDDEN to change the mass shape. FORBIDDEN to add entrance where none exists. FORBIDDEN to add/remove volumes.",
+        "note_5_ac_screen": "تفضل موجودة في نفس أماكنها بس يتحط عليها غطاء/سكرين ديكوري يخفيها — AC units STAY in same positions. A decorative screen/cover is placed OVER them to HIDE them.",
+        "note_6_frame_critical": "الصورة مش جايبة المبنى بالكامل — مش عايز الصورة الناتجة تطلع مختلفة عن اللقطة — The input photo may not show the full building. The output MUST have the EXACT same partial view. When the building is cut at the edge, it stays cut. NEVER complete or extend.",
+        "note_7_model_ignores": "النموذج ملتزمش بيه أن هو يجيب نفس اللقطة دايماً. أحياناً كان بيتجاهل الأمر ده — The model has previously IGNORED the frame-lock rule. This JSON version MUST enforce it more strictly.",
+        "note_8_maximize": "عايز ضيف طور اقصى حاجة ممكن تطورها وتفاصيل كتير اوي — Maximize EVERYTHING. Add the maximum possible development, details, contextual elements. Every improvable thing MUST be improved to the highest degree.",
+        "note_9_islamic_contemporary": "الطابع إسلامي معاصر — Islamic contemporary identity. The campus must look like a WORLD-CLASS UNIVERSITY WITH ISLAMIC IDENTITY — not a mosque.",
+        "note_10_marketing": "صورة تسويقية غنية بالتفاصيل كان مكتب معماري عالمي هو اللي مصممها — Marketing-quality image rich with details as if designed by a world-class architectural firm.",
+        "note_11_add_elements": "وكمان ينضاف عناصر جديدة ونوافير وكل حاجة — Add new elements: fountains, seating, flags, digital screens, umbrellas, everything possible in EMPTY areas.",
+        "note_12_same_shot": "نفس زاوية الصورة نفس كل شيء — Same camera angle, same composition, same EVERYTHING about the viewpoint."
+    },
+    "final_mandate": "ALL changes = ADDITIVE SURFACE TREATMENTS on EXISTING structural skeleton. Skin changes, bones IDENTICAL. Pursue ABSOLUTE MAXIMUM improvement within ALL constraints. Every output pixel must be more beautiful, more luxurious, and more architecturally refined than the input. The image must look like a marketing brochure from a world-class architectural firm. FRAME = LOCKED. STRUCTURE = FROZEN. SURFACES = MAXIMALLY UPGRADED.",
+    "companion_prompt": "For INTERIOR photographs, use MASTER_PROMPT_INTERIOR.md — a separate dedicated prompt for upgrading interior spaces (lobbies, corridors, stairwells, etc.)"
+}
