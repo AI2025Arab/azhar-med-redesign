@@ -9,10 +9,10 @@
   --font-inter: var(--font-inter);
 
   /* Architectural Luxury Colors */
-  --color-arch-black: #0B0B0C;
-  --color-stone-white: #F5F5F4;
-  --color-medical-emerald: #0F766E;
-  --color-islamic-gold: #C9A227;
+  --color-arch-black: #080809;
+  --color-stone-white: #F8F9FA;
+  --color-medical-emerald: #0D9488;
+  --color-islamic-gold: #D4AF37;
   --color-muted-sandstone: #E7E3DB;
 
   /* Map to UI standard variables to keep shadcn components somewhat intact, though we override backgrounds */
@@ -28,17 +28,33 @@
   --color-accent: var(--color-medical-emerald);
   --color-accent-foreground: var(--color-stone-white);
 
-  --color-muted: #1A1A1A;
+  --color-muted: #131315;
   /* slightly lighter than arch-black */
-  --color-muted-foreground: #888888;
+  --color-muted-foreground: #9CA3AF;
 
-  --color-border: #1F1F22;
-  --color-input: #1F1F22;
+  --color-border: #1F1F24;
+  --color-input: #1F1F24;
   --color-ring: var(--color-islamic-gold);
 
-  --radius-lg: 0.5rem;
-  --radius-md: 0.375rem;
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
   --radius-sm: 0.25rem;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes gradient-drift {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+  }
 }
 
 @layer base {
@@ -48,9 +64,26 @@
 
   body {
     @apply bg-[var(--color-arch-black)] text-[var(--color-stone-white)] font-plex antialiased selection:bg-[var(--color-islamic-gold)] selection:text-[var(--color-arch-black)];
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-islamic-gold) var(--color-arch-black);
   }
 
-  /* Typography Styles dictated */
+  /* Custom Webkit Scrollbars for luxury feels */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080809;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1F1F24;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37;
+  }
+
   h1,
   h2,
   h3,
@@ -61,4 +94,25 @@
   }
 }
 
-/* (kept intentionally empty) */
+/* Custom premium card overlays and blur utility classes */
+.glass-panel {
+  background: rgba(19, 19, 21, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gold-shadow-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-shadow-hover:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Slider Overrides for Luxury Before-After */
+.react-before-after-slider-container {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
