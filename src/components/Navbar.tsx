@@ -31,10 +31,10 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 transition-all duration-500 px-4 md:px-8 py-4">
-            <div className={`max-w-7xl mx-auto w-full rounded-2xl border transition-all duration-500 relative overflow-hidden ${
+            <div className={`max-w-7xl mx-auto w-full rounded-2xl border border-[#D4AF37]/20 bg-[#080809]/85 backdrop-blur-xl shadow-2xl transition-all duration-500 relative overflow-hidden ${
                 scrolled 
-                    ? "bg-[#080809]/85 backdrop-blur-xl border-[#D4AF37]/20 shadow-2xl py-3 px-6 md:px-10" 
-                    : "bg-transparent border-transparent py-4 px-4 md:px-8"
+                    ? "py-3 px-6 md:px-10" 
+                    : "py-4 px-6 md:px-10"
             }`}>
                 {/* Scroll Progress Bar */}
                 <div 
