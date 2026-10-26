@@ -11,6 +11,7 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ProposalGallery from "@/components/ProposalGallery";
 import DeanProfileSection from "@/components/DeanProfileSection";
 import TeamSection from "@/components/TeamSection";
+import MarketValueSection from "@/components/MarketValueSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -48,6 +49,9 @@ export default function Home() {
 
         {/* Section 8: Team Profiles */}
         <TeamSection />
+
+        {/* Section 9: Market Value Roadmap */}
+        <MarketValueSection />
       </main>
 
       <Footer />
